@@ -4,19 +4,28 @@ metadata:
   name: rabbitmqcluster-main
 spec:
   replicas: 3
-  resources: #these are the defaults
+  resources:
     requests:
       cpu: 1000m
       memory: 2Gi
     limits:
       cpu: 1000m
       memory: 2Gi
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: doks.digitalocean.com/node-pool
-            operator: In
-            values:
-            - cloud-services-node-pool
+
+  # replicas: 3
+  # resources: #these are the defaults
+  #   requests:
+  #     cpu: 1000m
+  #     memory: 2Gi
+  #   limits:
+  #     cpu: 1000m
+  #     memory: 2Gi
+  # affinity:
+  #   nodeAffinity:
+  #     requiredDuringSchedulingIgnoredDuringExecution:
+  #       nodeSelectorTerms:
+  #         - matchExpressions:
+  #             - key: doks.digitalocean.com/node-pool
+  #               operator: In
+  #               values:
+  #                 - cloud-services-node-pool
